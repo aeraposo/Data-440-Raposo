@@ -109,3 +109,38 @@ xspline(x = dwellings[locs, 2],
         y = dwellings[locs, 3],
         shape = -1,
         lty = 2)
+
+# STRECH GOAL:
+x <- 1:1000
+y <- 1:1000
+
+x_axis <- sample(x, size = 50, replace = TRUE)
+y_axis <- sample(y, size = 50, replace = TRUE)
+
+# add 50 random points
+symbols(x_axis, y_axis, squares = rep(5,50), inches = FALSE)
+
+# add 40 random circles ("trees")
+symbols(sample(x, 40, replace = TRUE), 
+        sample(y, 40, replace = TRUE), 
+        circles = rep(5,40), 
+        inches = FALSE,
+        fg = "green",
+        add = TRUE)
+
+# add 12 larger trees
+x_12 = sample(x, 12, replace = TRUE)
+y_12 = sample(y, 12, replace = TRUE)
+
+symbols(x_12,y_12, 
+        circles = rep(10,12), 
+        inches = FALSE,
+        fg = "purple",
+        add = TRUE)
+
+# add a curved line among the 12 points randomly added to this DF
+
+xspline(x = x_12,
+        y = y_12,
+        shape = -1,
+        lty = 2)
