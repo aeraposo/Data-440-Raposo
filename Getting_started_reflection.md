@@ -58,6 +58,7 @@ xspline(x = x_points,y = y_points,shape = -1,lty = 2)
 ```
 <br/>
 Using all of this information, I made the following plots. Since the data was attained through randomized processes, the graphs look different with each run:<br/>
+
 - This plot was made using the plot() function. By setting type = 'b', both lines and points are displayed,lty = 2 makes the line dotted, lwd = 0.75 controls the line opacity, col is set to blue so the line and points are blue, pch is set to 0 so the points are square, cex = 1 so the points are fairly large. Since the x values are 1-10 in ascending order and the y values are 1-10 in descending order, the line has a slope of -1.<br/>
 
 ![Running Boy Plot](https://aeraposo.github.io/Data-440-Raposo/running_boy_plt.png)<br/>
