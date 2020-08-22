@@ -43,13 +43,15 @@ symbols(x_values, y_values, squares = rep(.75,10), inches = FALSE, fg = "red")
 # now add 10 more points in green
 symbols(more_x_values, more_y_values, circles = rep(.75,10), inches = FALSE, fg = "green", add = TRUE)
 ```
-- Add lines to a plot made with symbols function: uses lines function (takes same inputs as symbols function). Lines will be drawn in order of points listed. Add numbers to indicate the order in which the points were added/appear in the lists.
+- Add stright lines to a plot made with symbols function: uses lines function (takes same inputs as symbols function). Lines will be drawn in order of points listed. Add numbers to indicate the order in which the points were added/appear in the lists.
 ```
 # Add lines
 lines(x = x_values_of_points,y = y_values_of_points,lty = 2, lwd = .75, col = "blue")
 # Innumerate the points
 text(x = x_values_of_points,y = y_values_of_points,labels = #_range_of_length_x_or_y)
 ```
+- Add curved lines to a plot made with symbols function: takes same arguments for data as with straight lines, shape = not sure but I think it indicates how closely the line fits to the points (-1 works well).
+xspline(x = x_points,y = y_points,shape = -1,lty = 2)
 
 
 One thing I didn't quite get the hang of the first time around was the $ operator. Using the [] for indexing made a lot more sense but I think its valuable to understand both so I'm planning to reread/rerun that portion. As of now, I understand that $ is used to index an entire column of a DataFrame (df_name$col_name).
