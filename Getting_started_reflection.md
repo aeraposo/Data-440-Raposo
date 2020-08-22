@@ -36,12 +36,14 @@ df_name$col_name
 ```
 plot(x,y, optional arguments)
 ```
-- Plot with symbols() function: plots points (lines, etc. can be added too). Circles/squares argument specifies the shape of the point and = point size (rep takes the # of times to repeat the point, which changes its size and the number of points plotted), inches = FALSE specifies that the units of the axis and of the points are the same, fg = 'color of points'. To add additional points to the same graph, call symbols a second time with add = TRUE. Below we will plot a total of 20 points
+- Plot with symbols() function: plots points (lines, etc. can be added too). Circles/squares argument specifies the shape of the point and = point size (rep takes the # of times to repeat the point, which changes its size and the number of points plotted), inches = FALSE specifies that the units of the axis and of the points are the same, fg = 'color of point outlines', bg = 'fill color (default is to match the setting for fg)'. To add additional points to the same graph, call symbols a second time with add = TRUE. Below we will plot a total of 20 points. To add a title to a symbols graph, call title().
 ```
 # plot 10 points in red
 symbols(x_values, y_values, squares = rep(.75,10), inches = FALSE, fg = "red")
 # now add 10 more points in green
 symbols(more_x_values, more_y_values, circles = rep(.75,10), inches = FALSE, fg = "green", add = TRUE)
+# add a title
+title("this is my title")
 ```
 - Add stright lines to a plot made with symbols function: uses lines function (takes same inputs as symbols function). Lines will be drawn in order of points listed. Add numbers to indicate the order in which the points were added/appear in the data.
 ```
@@ -55,11 +57,19 @@ text(x = x_values_of_points,y = y_values_of_points,labels = #_range_of_length_x_
 xspline(x = x_points,y = y_points,shape = -1,lty = 2)
 ```
 <br/>
-Using all of this information, I made the following plots:
+Using all of this information, I made the following plots. Since the data was attained through randomized processes, the graphs look different with each run:<br/>
 - This plot was made using the plot() function. By setting type = 'b', both lines and points are displayed,lty = 2 makes the line dotted, lwd = 0.75 controls the line opacity, col is set to blue so the line and points are blue, pch is set to 0 so the points are square, cex = 1 so the points are fairly large. Since the x values are 1-10 in ascending order and the y values are 1-10 in descending order, the line has a slope of -1.<br/>
 
 ![Running Boy Plot](https://aeraposo.github.io/Data-440-Raposo/running_boy_plt.png)<br/>
 
-- Next, after defining a new set of 10 random points with x and y coordinates between 1 and 100 using the sample() function, 
+- Next, after defining a new set of 10 random points with x and y coordinates between 1 and 100 (stored as objects east and north) using the sample() function, I used the symbols() function to graph these points (the black boxes), then I called symbols twice more to add 20 newly generated random points (10 are green, 10 are beige). When adding more points using symbols(), I set add = TRUE so all points would appear on the same graph. I next made a DataFrame containing the 10 original random points. By indexing this DataFrame at various point using the $ or \[ ] operators, I added lines using the lines() function and innumerated the points using text(). To determine the numerical order of the points, I used the index of the DataFrame containing the points. I then randomly selected 3 points, using sample(), and drew additional lines between these points. Finally, I added a curved line between these 3 points.<br/>
+
+![North/east plot](https://aeraposo.github.io/Data-440-Raposo/north_east_plt.png)<br/>
+
+- Lastly, for the stretch goal, I repeated the above process with variations in number of points and the range of the data. Both the x and y values for this plot fall in a range of 1-1000, 
+
+
+
+
 
 One thing I didn't quite get the hang of the first time around was the $ operator. Using the [] for indexing made a lot more sense but I think its valuable to understand both so I'm planning to reread/rerun that portion. As of now, I understand that $ is used to index an entire column of a DataFrame (df_name$col_name).
