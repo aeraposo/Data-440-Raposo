@@ -31,7 +31,6 @@ df_name[row_number(s),col_number(s)]
 df_name$col_name
 
 ```
-
 - **Plot with plot() function:** Plots points with or without lines through. The plot() function takes 2 main arguments- an object with x value(s) and one with y value(s). There are also several optional arguments- type = 'o' or 'l' or 'b' ('o' the lines and the points on top, 'l' shows lines, 'b' also shows both), main = 'Graph Title', sub = 'Graph Subtitle, good to indicate units', xlab and ylab = 'Axis Labels', lty = \# representing line type, lwd = \# representing line weight (opacity), col = 'Color', pch = \# representing point shape, cex = \# representing scale of the point symbol.<br/>
 ```
 plot(x,y, optional arguments)
@@ -56,8 +55,7 @@ text(x = x_values_of_points,y = y_values_of_points,labels = \#_range_of_length_x
 ```
 xspline(x = x_points,y = y_points,shape = -1,lty = 2)
 ```
-<br/>
-Using all of this information, I made the following plots. Since the data was attained through randomized processes, the graphs look different with each run:<br/>
+<br/>Using all of this information, I made the following plots. Since the data was attained through randomized processes, the graphs look different with each run:<br/>
 
 - This plot was made using the plot() function. By setting type = 'b', both lines and points are displayed,lty = 2 makes the line dotted, lwd = 0.75 controls the line opacity, col is set to blue so the line and points are blue, pch is set to 0 so the points are square, cex = 1 so the points are fairly large. Since the x values are 1-10 in ascending order and the y values are 1-10 in descending order, the line has a slope of -1.<br/>
 
