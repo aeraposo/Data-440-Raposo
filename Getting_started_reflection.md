@@ -11,22 +11,45 @@ x <- 'apple'
 x <- 1:10
 x <- 4.32
 ```
-- Plot with lines connecting points: The plot() function takes 2 main arguments- an object with x value(s) and one with y value(s). There are also several optional arguments- main = 'Graph Title', sub = 'Graph Subtitle, good to indicate units', xlab and ylab = 'Axis Labels', lty = # representing line type, lwd = # representing line weight, col = 'Color', pch = # representing point shape, cex = # representing scale of the point symbol.
-```
-plot(x,y, optional arguments)
-```
 - Select random numbers: x represents an object of a listed range of numbers, size indicates the # of values to pick, relace- if true the same value may be randomly selected multiple times. The example below will select 10 numbers between 1 and 100 and may contain repeated values.
 ```
 x <- 1:100
 object_name <- sample(x, size = 10, replace = TRUE)
 ```
-- Plot points, lines optional/specified: circles/squares argument specifies the shape of the point and = point size (rep takes the # of times to repeat the point, which changes its size and the number of points plotted), inches = FALSE specifies that the units of the axis and of the points are the same, fg = 'color of points'. To add additional points to the same graph, call symbols a second time with add = TRUE. Below we will plot a total of 20 points
+- Check the class of an object:
+```
+class(object_name)
+```
+- Create a DataFrame: id = range of numbers for index, list objects that contain subsequent column entries
+```
+df_name <- cbind.data.frame(id = 1:10, col_1_entries, col_2_entries, etc.)
+```
+- Index a DataFrame: using either $ or \[ ]
+```
+df_name[row_number(s),col_number(s)]
+# Index an entire column
+df_name$col_name
+
+```
+
+- Plot with lines connecting points: The plot() function takes 2 main arguments- an object with x value(s) and one with y value(s). There are also several optional arguments- main = 'Graph Title', sub = 'Graph Subtitle, good to indicate units', xlab and ylab = 'Axis Labels', lty = # representing line type, lwd = # representing line weight, col = 'Color', pch = # representing point shape, cex = # representing scale of the point symbol.
+```
+plot(x,y, optional arguments)
+```
+- Plot points using symbols function: plots points (lines, etc. can be added too). Circles/squares argument specifies the shape of the point and = point size (rep takes the # of times to repeat the point, which changes its size and the number of points plotted), inches = FALSE specifies that the units of the axis and of the points are the same, fg = 'color of points'. To add additional points to the same graph, call symbols a second time with add = TRUE. Below we will plot a total of 20 points
 ```
 # plot 10 points in red
 symbols(x_values, y_values, squares = rep(.75,10), inches = FALSE, fg = "red")
 # now add 10 more points in green
 symbols(more_x_values, more_y_values, circles = rep(.75,10), inches = FALSE, fg = "green", add = TRUE)
 ```
+- Add lines to a plot made with symbols function: uses lines function (takes same inputs as symbols function). Lines will be drawn in order of points listed. Add numbers to indicate the order in which the points were added/appear in the lists.
+```
+# Add lines
+lines(x = x_values_of_points,y = y_values_of_points,lty = 2, lwd = .75, col = "blue")
+# Innumerate the points
+text(x = x_values_of_points,y = y_values_of_points,labels = #_range_of_length_x_or_y)
+```
 
 
-One thing I didn't quite get the hang of the first time around was the $ operator. Using the [] for indexing made a lot more sense but I think its valuable to understand both so I'm planning to reread/rerun that portion.
+One thing I didn't quite get the hang of the first time around was the $ operator. Using the [] for indexing made a lot more sense but I think its valuable to understand both so I'm planning to reread/rerun that portion. As of now, I understand that $ is used to index an entire column of a DataFrame (df_name$col_name).
