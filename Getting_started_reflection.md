@@ -66,10 +66,6 @@ Using all of this information, I made the following plots. Since the data was at
 
 ![North/east plot](https://aeraposo.github.io/Data-440-Raposo/north_east_plt.png)<br/>
 
-- Lastly, for the stretch goal, I repeated the above process with variations in number of points and the range of the data. Both the x and y values for this plot fall in a range of 1-1000, 
+- Lastly, for the stretch goal, I repeated the above process with variations in number of points and the range of the data. Both the x and y values for this plot fall in a range of 1-1000. First, I used sample() to randomly select 50 points in the 1000 x 1000 area, which I added to a DataFrame. Then, I added 40 additional green trees (circles) of the same size and 12 large puple trees randomly. I also added a dotted line among 7 randomly selected points of the original 50. I did this by using sample(rand_50$id,7) to pick 7 random numbers from the index column of the DataFrame. Then, I indexed the DataFrame in the x and y columns at these 7 points, which I represented as 2 seperate object for the 7 x and y values. By plugging in these object to xspline(), a curved dotted line was drawn between the points. Finally, I added a title using the title() function.<br/>
 
-
-
-
-
-One thing I didn't quite get the hang of the first time around was the $ operator. Using the [] for indexing made a lot more sense but I think its valuable to understand both so I'm planning to reread/rerun that portion. As of now, I understand that $ is used to index an entire column of a DataFrame (df_name$col_name).
+![Person's path plot](https://aeraposo.github.io/Data-440-Raposo/person_path_plt.png)<br/>
