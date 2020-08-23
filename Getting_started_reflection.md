@@ -40,14 +40,14 @@ plot(x,y, optional arguments)
 symbols(x_values, y_values, squares = rep(.75,10), inches = FALSE, fg = "red")
 # now add 10 more points in green
 symbols(more_x_values, more_y_values, circles = rep(.75,10), inches = FALSE, fg = "green", add = TRUE)
-\# add a title
+# add a title
 title("this is my title")
 ```
 - **Add stright lines to a plot made with symbols function:** uses lines function (takes same inputs as symbols function). Lines will be drawn in order of points listed. Add numbers to indicate the order in which the points were added/appear in the data.<br/>
 ```
-\# Add lines
+# Add lines
 lines(x = x_values_of_points,y = y_values_of_points,lty = 2, lwd = .75, col = "blue")
-\# Innumerate the points
+# Innumerate the points
 text(x = x_values_of_points,y = y_values_of_points,labels = \#_range_of_length_x_or_y)
 ```
 - **Add curved lines to a plot made with symbols function:** takes same arguments for data as with straight lines, shape = not sure but I think it indicates how closely the line fits to the points (-1 works well). The line connects the points in the order in which they appear in the data.<br/>
