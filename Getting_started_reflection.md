@@ -37,7 +37,7 @@ plot(x,y, optional arguments)
 ```
 - **Plot with symbols() function:** plots points (lines, etc. can be added too). Circles/squares argument specifies the shape of the point and = point size (rep takes the \# of times to repeat the point, which changes its size and the number of points plotted), inches = FALSE specifies that the units of the axis and of the points are the same, fg = 'color of point outlines', bg = 'fill color (default is to match the setting for fg)'. To add additional points to the same graph, call symbols a second time with add = TRUE. Below we will plot a total of 20 points. To add a title to a symbols graph, call title().<br/>
 ```
-\# plot 10 points in red
+*plot 10 points in red*
 symbols(x_values, y_values, squares = rep(.75,10), inches = FALSE, fg = "red")
 \# now add 10 more points in green
 symbols(more_x_values, more_y_values, circles = rep(.75,10), inches = FALSE, fg = "green", add = TRUE)
