@@ -27,9 +27,8 @@ df_name <- cbind.data.frame(id = 1:10, col_1_entries, col_2_entries, etc.)
 - **Index a DataFrame:**<br/>
 ```
 df_name[row_number(s),col_number(s)]
-# Index an entire column
+\# Index an entire column
 df_name$col_name
-
 ```
 - **Plot with plot() function:** Plots points with or without lines through. The plot() function takes 2 main arguments- an object with x value(s) and one with y value(s). There are also several optional arguments- type = 'o' or 'l' or 'b' ('o' the lines and the points on top, 'l' shows lines, 'b' also shows both), main = 'Graph Title', sub = 'Graph Subtitle, good to indicate units', xlab and ylab = 'Axis Labels', lty = \# representing line type, lwd = \# representing line weight (opacity), col = 'Color', pch = \# representing point shape, cex = \# representing scale of the point symbol.<br/>
 ```
