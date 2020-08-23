@@ -24,7 +24,7 @@ class(object_name)
 ```
 df_name <- cbind.data.frame(id = 1:10, col_1_entries, col_2_entries, etc.)
 ```
-- **Index a DataFrame:** using either \$ or \[ ]<br/>
+- **Index a DataFrame:**<br/>
 ```
 df_name[row_number(s),col_number(s)]
 # Index an entire column
