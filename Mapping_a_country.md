@@ -20,7 +20,7 @@ ggplot() +
                color = 'edge color',
                fill = 'fill color',
                alpha = transparency) +
-geom_sf_text(data = spacial_data_object_name,
+  geom_sf_text(data = spacial_data_object_name,
                aes(label = column name),
                size = text size,
                color = "text color")
