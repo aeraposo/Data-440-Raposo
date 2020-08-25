@@ -1,0 +1,9 @@
+## Projecting, and Plotting, and Labelling Administrative Subdivisions (Oh, my!)
+[This exercise](https://tyler-frazier.github.io/dsbook/describe.html#projecting-plotting-and-labelling-administrative-subdivisions) was interesting in challenging in several ways. The applications of these maps will, evidently, become very important as we begin to model synthetic populations. Beyond being able to visualize population density and the distribution of agents with certain features, this visualiation will provide context to values and patterns that emerge withing the data. My main challenge during this exercise was in coercing RStudio to show me my plots. For each plot, the code would execute but plots would only show up after an additional 30min, in the case of the last map, which I ran on Uganda data. I included these plots but found that there were too many subdivisions to fit on the map, even using super tiny text (size = 0.1 in Uganda's 3rd plot). I also tried running the script on Portugal data and, because of the large volume of data (or at least I think so), the plot wouldn't show up even after an hour. Another hurdle I faced was was labeling my second plot- the white background of the Liberia label just wouldn't go away. I even tried passing it in directly as a string, with no luck. During this process, however, I swapped the oder of the layers in building ggplots and found that this order corresponds to the order in which they are added to the map. After a few more tries of swapping the layers, the white label miraculously disappeared! I included both plots to show what I mean.<br/>
+- **Plot 1:**<br/>
+
+![Plot 1- Uganda and Liberia](https://aeraposo.github.io/Data-440-Raposo/gg_plot1)<br/>
+
+![Plot 2- Uganda and Liberia](https://aeraposo.github.io/Data-440-Raposo/gg_plot2)<br/>
+
+![Plot 3- Uganda and Liberia](https://aeraposo.github.io/Data-440-Raposo/gg_plot3)<br/>
