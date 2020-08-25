@@ -37,8 +37,9 @@ ggsave("file_name.png")
 **Plot 2:**<br/>
 
 ![Plot 2- Uganda and Liberia](https://aeraposo.github.io/Data-440-Raposo/gg_plot2.png)<br/>
-**You can see the issue I had with the label in these plots.**
+**You can see the issue I had with the white label in these plots.**
 
 **Plot 3:**<br/>
 
 ![Plot 3- Uganda and Liberia](https://aeraposo.github.io/Data-440-Raposo/gg_plot3.png)<br/>
+**You can see the issue I had with overcrowding labels in these plots.**
