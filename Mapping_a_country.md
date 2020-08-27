@@ -42,4 +42,8 @@ ggsave("file_name.png")
 **Plot 3:**<br/>
 
 ![Plot 3- Uganda and Liberia](https://aeraposo.github.io/Data-440-Raposo/gg_plot3.png)<br/>
-**You can see the issue I had with overcrowding labels in these plots.**
+**You can see the issue I had with overcrowding labels in these plots.**<br/><br/>
+
+<br/>**UPDATE: I made an improvement!**<br/>
+
+![Uganda Improved](https://aeraposo.github.io/Data-440-Raposo/Uganda_improved.png)
