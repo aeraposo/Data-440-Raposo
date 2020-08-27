@@ -15,7 +15,7 @@ library(sf)
 # You'll only need to run the library('lib name you want') commands
 
 # Clear your workspace
-rm(list=ls(all=TRUE))rm(list=ls(all=TRUE))
+rm(list=ls(all=TRUE))
 
 # set your working directory
 setwd("/Users/aeraposo/Data-440-Raposo/project_1")

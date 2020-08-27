@@ -97,9 +97,9 @@ ggplot() +
           alpha = 0) +
   geom_sf_text(data = uga_adm2,
                aes(label = NAME_3),
-               size = .1) +
+               size = 1) +
   geom_sf_text(data = uga_adm1,
                aes(label = NAME_1),
-               size = .5)
+               size = 2)
 
 ggsave("uganda.png")
