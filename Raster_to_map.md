@@ -6,7 +6,7 @@ plot(st_geometry(uga_adm1), add = TRUE)
 ```
 ![tiff image](https://aeraposo.github.io/Data-440-Raposo/uga_tiff.png)<br/>
 
-First, I read in a .tiff image of Uganda, as a raster, and verified that its boarders matched those present in the .shp files used last time. I verified this using the plot() function to add both maps to the same plot and visually checked that the boundaries appeared to match. As you can see, its hard to tell what the population density is across the entire country becuase of the high counts (in major cities) that skew the color scale of the map.<br/>
+First, I read in a .tiff image of Uganda, using raster(), and verified that its boarders matched those present in the .shp files used last time. I verified this using the plot() function to add both maps to the same plot and visually checked that the boundaries appeared to match. As you can see, its hard to tell what the population density is across the entire country becuase of the high counts (in major cities) that skew the color scale of the map.<br/>
 
 ![map1](https://aeraposo.github.io/Data-440-Raposo/uga_pop_20_map1.png)<br/>
 
