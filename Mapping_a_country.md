@@ -49,4 +49,4 @@ ggsave("file_name.png")
 ![Uganda Improved](https://aeraposo.github.io/Data-440-Raposo/Uganda_improved.png)
 
 **Strech goals:**
-!(Apac and Kumi)[https://aeraposo.github.io/Data-440-Raposo/apac+kumi.png]
+![Apac and Kumi](https://aeraposo.github.io/Data-440-Raposo/apac+kumi.png)
