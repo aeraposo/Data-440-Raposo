@@ -1,6 +1,6 @@
 ## Exploring a new R package: mlr3viz
 This week, I researched the mlr3viz package in R. This package was released in January, 2020 and is used to visualize mlr3 objects.<br/>
-- **Mlr3 objects** are of the task class, which contains tasks, predictions, and other various results.<br/>
+- **Mlr3 objects** are of the R6 class, which contains tasks, predictions, and other various results.<br/>
 - **Tasks** are used to access, handle, and potentially change data without directly changing the DataBackend.<br/>
   - **DataBackend** is a package designed to format data into either a table, matrix, or DataFrame, depending on which implimentation you use.
 Essentially, these objects work together as an interface that enables data flow from a given form of data storage (ie- a remote database or datasets). This is especially useful when working with large quantities of data and in scaling smaller amounts of data. Particularly, these objects have applications in machine learning where large, diversified, and scalable data are required.<br/>
