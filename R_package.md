@@ -12,7 +12,7 @@ As you can see, there are many unique plots offered in this package, includeing 
 Although the languages of R and python are quite distinct, I have noticed several similarities between this package and both maplotlib and seasborn in python. Although mine isn't quite as sophisticated or as mathematically advanced as the above plot, my pair plot below highlights some of the shared graphical capabiliteis of these libraries. <br/>
 This pairplot is from my final project for Applied Machine Learning, which I took this summer:<br/>
 ![seaborn pair plot](https://aeraposo.github.io/Data-440-Raposo/pair_plot_example.png)<br/>
-From modeling performance of machine learning models to general summary statistics about one's data, the applications of this package are vast. In fact, these are just a few mays the mlr3viz library can be used and its aplications certainly stretch beyond what I have covered here (here is a [link]() to the full documentation, which lists some more functions of the package.<br/>
+From modeling performance of machine learning models to general summary statistics about one's data, the applications of this package are vast. In fact, these are just a few mays the mlr3viz library can be used and its aplications certainly stretch beyond what I have covered here (here is a [link](https://cran.r-project.org/web/packages/mlr3viz/mlr3viz.pdf) to the full documentation, which lists some more functions of the package.<br/>
 
 Sources:<br/>
 https://cran.r-project.org/web/packages/mlr3viz/index.html <br/>
