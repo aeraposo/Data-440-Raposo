@@ -18,12 +18,12 @@ After importing the package, you can produce the following plots by calling the 
 ![mlr3viz pair plot](https://rviews.rstudio.com/2020/02/24/january-2020-top-40-new-r-packages/mlr3viz.png)<br/>
 
 As you can see, there are many unique plots offered in this package, includeing barplots, boxplots, histograms, ROC curves, and Precision-Recall curves.<br/>
-Although the languages of R and python are quite distinct, I have noticed several similarities between this package and both maplotlib and seasborn in python. Although mine isn't quite as sophisticated or as mathematically advanced as the above plot, my pair plot below highlights some of the shared graphical capabiliteis of these libraries. Matplotlib is also capable of prodeucing the various plot present in the above plot, which are not present in the plot below.<br/>
+Although the languages of R and python are quite distinct, I have noticed several similarities between this package and both matplotlib and seaborn in python. Although mine isn't quite as sophisticated or as mathematically advanced as the above plot, my pair plot below highlights some of the shared graphical capabiliteis of these libraries. Matplotlib is also capable of producing the various plots present in the above plot, which are not found in the plot below.<br/>
 This pairplot is from my final project for Applied Machine Learning, which I took this summer:<br/>
 
 ![seaborn pair plot](https://aeraposo.github.io/Data-440-Raposo/pair_plot_example.png)<br/>
 
-From modeling the performance of machine learning models to allowing for this visualization of data distribution and summary statistics, the applications of this package are vast. In fact, these are just a few functions of mlr3viz package and its aplications certainly stretch beyond what I have covered here (here is a [link](https://cran.r-project.org/web/packages/mlr3viz/mlr3viz.pdf) to the full documentation, which lists some more functions of the package).<br/>
+From modeling the performance of machine learning algorithms to allowing for visualization of data distributions and summary statistics, the applications of this package are vast. In fact, these are just a few functions of mlr3viz package and its aplications certainly stretch beyond what I have covered here (here is a [link](https://cran.r-project.org/web/packages/mlr3viz/mlr3viz.pdf) to the full documentation, which lists some more functions of the package).<br/>
 
 Sources:<br/>
 https://cran.r-project.org/web/packages/mlr3viz/index.html <br/>
