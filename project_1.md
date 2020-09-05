@@ -21,4 +21,7 @@ Now, let's add population density values to the original map of Uganda that show
 
 ![color scale %](https://aeraposo.github.io/Data-440-Raposo/density_map.png)<br/>
 
-We can now display the above bar plot and map side by side using the ggarrange() function from the ggpubr library.
+We can now display the above bar plot and map side by side using the ggarrange() function from the ggpubr library.<br/>
+
+![map and bar plot](https://aeraposo.github.io/Data-440-Raposo/side_by_side_bar_map.png)<br/>
+
