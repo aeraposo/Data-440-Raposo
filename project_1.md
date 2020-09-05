@@ -13,3 +13,12 @@ Let's reorder these districts from greatest to least population size using fct_r
 
 ![bar plot, sorted](https://aeraposo.github.io/Data-440-Raposo/bar_plt_1_sorted_and_labeled.png)<br/>
 
+We can also represent these %s with a color scale in the bars:<br/>
+
+![color scale %](https://aeraposo.github.io/Data-440-Raposo/colorful_%_plt.png)<br/>
+
+Now, let's add population density values to the original map of Uganda that showed population distribution.<br/>
+
+![color scale %](https://aeraposo.github.io/Data-440-Raposo/density_map.png)<br/>
+
+We can now display the above bar plot and map side by side using the ggarrange() function from the ggpubr library.
