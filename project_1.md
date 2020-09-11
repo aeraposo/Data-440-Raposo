@@ -33,3 +33,14 @@ After croping the raster and masking the sf adm2 object, I used the readShapeSpa
 ![Gulu ppp](https://aeraposo.github.io/Data-440-Raposo/ppp_uga.png)
 
 Next, I used the spatstat library (primarily used for spacial statistics)
+
+# Deliverables:
+Upload the spatial plot that describes the de facto location of human settlements and urban areas, the center lines of classified roadways and the location of health care facilities by type throughout your selected and combined adm2, adm3 or adm4 areas.
+
+Accompany your plot with a written statement that provides answers to the following information.
+
+Total population of selected and combined adm2, adm3 or adm4 areas and the total number of distinctly defined human settlements or urban areas
+A description of the distribution of sizes and densities of all human settlements and urban areas throughout your selected and combined adm2, adm3 or adm4 areas
+A description of the roadways and your estimate of the transportation networks level of service in comparison to the spatial distriubtion of human settlements and urban areas
+A description of health care facilities and your estimate of service accessibility in comparison to the spatial distriubtion of human settlements and urban areas
+Each team member should be prepared to present their final draft results on Friday, November 15th during the informal group presentations. Upload your finished product to the slack channel #data100_project3 no later than 11:59PM on Sunday, November 17th.
