@@ -1,4 +1,8 @@
 ## Project 1: Code Red, computer meltdown in progress
+After my computer took a brief hiatus, I was able to start project 1! 
+For this project, I attained my from [GADM]( https://gadm.org/), which provides geospatial and population data for each country and its subdivisions. I selected Uganda to model and began by downloading a zip file containing the necessary shapefiles (shp). Shp files contain both geospatial information in the form of polygons and population descriptions.
+After familiarizing myself with the data and producing some base level plots during week 2, week 3 began with making a geometric bar plot with a simple features object
+
 
 **Creating a Geometric Bar Plot with your Simple Feature object:**
 Now that we've added a new column to the adm1 oject that summarizes the total population for each subdivision, let's make a bar plot of the population density on this level.<br/>
