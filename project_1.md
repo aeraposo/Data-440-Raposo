@@ -1,4 +1,4 @@
-## Project 1: Code Red, computer meltdown in progress
+## Project 1: Code red, computer meltdown in progress
 
 **Creating a Geometric Bar Plot with your Simple Feature object:**<br/>
 
