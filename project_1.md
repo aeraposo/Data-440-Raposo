@@ -22,6 +22,14 @@ Using a similar process to that used to generate the above density, plots, I plo
 
 **Adding transportation facilities & health care services**<br/>
 Next, I added transportation and health care services to the map of Kumi. I also chose to union Kumi with 2 neighboring districts- Ngora and Bukedea. By expanding my window, I was better able to visualize the infrastructure in and arround my selected district. These maps have many applications in community development and offer some insight into the economic and medical [crises](https://www.imf.org/en/News/Articles/2020/05/21/na052120-the-imfs-support-for-ugandas-health-care-the-vulnerable-businesses-and-stability) that have stricken this area in during the COVID-19 pandemic.<br/>
+- Making the maps: First, I dowloaded a dataset from the [Humanitarian Data Exchange (HDX)](https://data.humdata.org/dataset/uganda-road-network) and read it into R as a simple features object (sf). 
+  - Sf objects are particularly adept at storing geospatial data, which is why this type of object appears so much in project 1/ in this class in general!
+- Now that I had the data, I used the crop() function to keep just the information that was pertinent to Kumi and the surrounding area. If I were to use the mask() method directly after this, I would limit the plotted features to those exclusively within Kumi, but I wanted to see some of the surrounding area too, so I left this part out.<br/>
+- After taking a quick look at what kinds of roads were present in my subset area (Kumi), I defined three new sf objects to represent the data that pertains to each type of road. Then, I produced a gg plot of kumi and overlayed the different kinds of roads.<br/>
+- After repeating this whole process with data contianing locations of different kinds of healthcare facilities (also from HDX), I was left with the plots below.<br/>
+- A few challenges I faced:
+  - I wanted to add a legend to these plots but was unsuccessful. I searched online and tried several methods with no success.<br/>
+  - Also, my population count for Kumi totaled to 308,672. According to Google, this is an overestimation by 50,000 but I cannot see how such an error may have occured. After unioning Kumi with Ngora and Bukedea, the population total was 718,297, which is also an overestimation.
 
 ![health care and roads](https://aeraposo.github.io/Data-440-Raposo/health_care_access.png)<br/>
 
