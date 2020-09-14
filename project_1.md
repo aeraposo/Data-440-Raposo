@@ -8,7 +8,7 @@ For this project, I attained my data from [GADM]( https://gadm.org/), which prov
 ![geo. bar plot](https://aeraposo.github.io/Data-440-Raposo/geo_bar.png)<br/>
 
 **De facto description of human settlements and urban areas (accessibility 1)**<br/>
-For this portion of the project, I generated a map of Uganda that shows areas of poplation settlement/ urban areas. To create such a map, I generated a planar point pattern(PPP) of the country. The planar point pattern is a visual representation of population dispersal. This pattern is randomly generated using the rpoint() method, which makes random predictions about population distribution based on defining features and variations in input data within a defined window (in this case, the window contained only Uganda). I also took a closer look at this country by generating a similar ppp of the district of Kumi.<br/>
+For this portion of the project, I generated a map of the district of Kumi, Uganda that shows areas of poplation settlement/ urban areas. To create such a map, I generated a planar point pattern(PPP) of the country. The planar point pattern is a visual representation of population dispersal. This pattern is randomly generated using the rpoint() method, which makes random predictions about population distribution based on defining features and variations in input data within a defined window (in this case, the window contained only Uganda). I also took a closer look at this area by generating a similar ppp of Kumi unioned with its neighboring districts Ngora and Bukedea.<br/>
 
 ![planar point pattern](https://aeraposo.github.io/Data-440-Raposo/ppp_uga.png)<br/>
 
@@ -20,6 +20,7 @@ Using a similar process to that used to generate the above density, plots, I plo
 
 ![urban areas](https://aeraposo.github.io/Data-440-Raposo/urban_areas_uga.png)<br/>
 
+I though it was interesting how settlements in Kumi seem to be clustered either on the side near Ngora, which boarders a body of water and is closer to the capital (Kampala) or are on the boarder of Ngora. Looking back, after completing accessability 2, I think the clusters on the Bukedea side are due to increased access to roads and health care. I'm interested to see the 3D plot to confirm my suspicions about population clustering by water on the Ngora side.
 **Adding transportation facilities & health care services**<br/>
 Next, I added transportation and health care services to the map of Kumi. I also chose to union Kumi with 2 neighboring districts- Ngora and Bukedea. By expanding my window, I was better able to visualize the infrastructure in and arround my selected district. These maps have many applications in community development and offer some insight into the economic and medical [crises](https://www.imf.org/en/News/Articles/2020/05/21/na052120-the-imfs-support-for-ugandas-health-care-the-vulnerable-businesses-and-stability) that have stricken this area in during the COVID-19 pandemic.<br/>
 - Making the maps: First, I dowloaded a dataset from the [Humanitarian Data Exchange (HDX)](https://data.humdata.org/dataset/uganda-road-network) and read it into R as a simple features object (sf). 
