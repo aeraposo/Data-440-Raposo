@@ -29,8 +29,15 @@ Next, I added transportation and health care services to the map of Kumi. I also
 - After taking a quick look at what kinds of roads were present in my subset area (Kumi), I defined three new sf objects to represent the data that pertains to each type of road. Then, I produced a gg plot of kumi and overlayed the different kinds of roads.<br/>
 - After repeating this whole process with data contianing locations of different kinds of healthcare facilities (also from HDX), I was left with the plots below.<br/>
 - A few challenges I faced:
-  - I wanted to add a legend to these plots but was unsuccessful. I searched online and tried several methods with no success.<br/>
+  - I wanted to add a legend to these plots- I searched online and tried several methods with no success.<br/>
   - Also, my population count for Kumi totaled to 308,672. According to Google, this is an overestimation by 50,000 but I cannot see how such an error may have occured. After unioning Kumi with Ngora and Bukedea, the population total was 718,297, which is also an overestimation.
 
 ![health care and roads](https://aeraposo.github.io/Data-440-Raposo/health_care_access.png)<br/>
+
+**Rendering Topography (accessibility 3)**
+For me, this was definitely the most exciting part of project 1. There is something about generating a 3d plot from seemingly uninterpretable data that is super awesome (for lack of better words)! Although I struggled with getting the settlements to shade in, I would call my 3d plot an overall success. This plot also sheds some light on the community distributions within Kumi.
+How has topography appeared to have impacted the development of urban areas?
+How has topography appeared to have impacted the development of transportation facilities?
+How has topography appeared to have impacted the location of health care facilities?
+Has producing your three-dimensional map resulted in an interpretion that is different from your previous analysis?
 
