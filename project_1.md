@@ -37,13 +37,14 @@ Next, I added transportation and healthcare services to the map of Kumi. I also 
 **Rendering Topography (accessibility 3)**
 For me, this was definitely the most exciting part of project 1. There is something about generating a 3d plot from seemingly uninterpretable data that is super awesome (for lack of better words)! Although I struggled with getting the settlements to shade in, I would call my 3d plot an overall success. This plot also sheds some light on the community distributions within Kumi.<br/>
 After downloading the appropriate topological data, a shp file that was read in as a raster, I cropped the data to my selected area. Then, I converted the raster to a matrix and generated a 2d plot Kumi's topology, including aquatic areas, using plot_map(). By add "ambient shaddows" and a few other commands, I generated a 3d plot of this topology using plot_3d().<br/>
+
 ![topo plot 1](https://aeraposo.github.io/Data-440-Raposo/1topo.png)<br/>
 
 Although these plots are pretty zesty, they don't reveal much about the specific topography within the district. In fact, the general region of Kumi doesn't have any defined bounds in the plot so how can we be sure what or where we are really looking? To confirm that I was looking at the right place and to give some geospatial context to the topography, I overlayed the border of kumi on these plots.<br/>
 
 ![topo plot 2](https://aeraposo.github.io/Data-440-Raposo/topo_outline.png)<br/>
 
-Not too bad, by plotting these additional lines, it is much more feasible to make informed observation and predictions about the different observed settlements (see observations/predictions below). For additional context, I plotted the major roads and healthcare facilities in and arround Kumi. I chose to include roads and healthcare facilties just beyond the borders because they may provide additional context to settlement locations (for example, if there was a hoptial just beyond the border that is closer than other facilities within Kumi, people may congregate closer to that border/hospital). I also labeled the county within Kumi that had the largest predicted settlement.
+Not too bad, by plotting these additional lines, it is much more feasible to make informed observation and predictions about the different observed settlements (see observations/predictions below). For additional context, I plotted the major roads and healthcare facilities in and arround Kumi. I chose to include roads and healthcare facilties just beyond the borders because they may provide additional context to settlement locations (for example, if there was a hoptial just beyond the border that is closer than other facilities within Kumi, people may congregate closer to that border/hospital). I also labeled the county within Kumi that had the largest predicted settlement.<br/>
 
 ![topo plot 3](https://aeraposo.github.io/Data-440-Raposo/3d_mukongoro_county.png)<br/>
 
