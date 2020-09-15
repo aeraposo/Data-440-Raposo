@@ -35,7 +35,9 @@ Next, I added transportation and health care services to the map of Kumi. I also
 ![health care and roads](https://aeraposo.github.io/Data-440-Raposo/health_care_access.png)<br/>
 
 **Rendering Topography (accessibility 3)**
-For me, this was definitely the most exciting part of project 1. There is something about generating a 3d plot from seemingly uninterpretable data that is super awesome (for lack of better words)! Although I struggled with getting the settlements to shade in, I would call my 3d plot an overall success. This plot also sheds some light on the community distributions within Kumi.
+For me, this was definitely the most exciting part of project 1. There is something about generating a 3d plot from seemingly uninterpretable data that is super awesome (for lack of better words)! Although I struggled with getting the settlements to shade in, I would call my 3d plot an overall success. This plot also sheds some light on the community distributions within Kumi.<br/>
+- Observations:
+  - One thing I noticed early on in this process was a division between clusters on either side of Kumi. One cluster lies near the boarder or Ngora and the other near Bukedea. The cluster near Ngora lies at the base of an area of elevation. After some research, I found out that Uganda is actually a fairly [moutainous country](https://media.springernature.com/original/springer-static/image/chp%3A10.1007%2F978-3-319-53485-5_73/MediaObjects/440493_1_En_73_Fig1_HTML.gif) because of its proximity to the Rwenzori Mountains. The cluster I mentioned is at the base of this mountain range
 How has topography appeared to have impacted the development of urban areas?
 How has topography appeared to have impacted the development of transportation facilities?
 How has topography appeared to have impacted the location of health care facilities?
