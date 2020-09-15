@@ -44,7 +44,7 @@ Although these plots are pretty zesty, they don't reveal much about the specific
 
 ![topo plot 2](https://aeraposo.github.io/Data-440-Raposo/topo_outline.png)<br/>
 
-Not too bad, by plotting these additional lines, it is much more feasible to make informed observation and predictions about the different observed settlements (see observations/predictions below). For additional context, I plotted the major roads and healthcare facilities in and arround Kumi. I chose to include roads and healthcare facilties just beyond the borders because they may provide additional context to settlement locations (for example, if there was a hoptial just beyond the border that is closer than other facilities within Kumi, people may congregate closer to that border/hospital). I also labeled the county within Kumi that had the largest predicted settlement.<br/>
+By plotting these additional lines, it is much more feasible to make informed observation and predictions about the different observed settlements (see observations/predictions below). For additional context, I plotted the major roads and healthcare facilities in and arround Kumi. I chose to include roads and healthcare facilties just beyond the borders because they may provide additional context to settlement locations (for example, if there was a hoptial just beyond the border that is closer than other facilities within Kumi, people may congregate closer to that border/hospital). I also labeled the county within Kumi that had the largest predicted settlement.<br/>
 
 ![topo plot 3](https://aeraposo.github.io/Data-440-Raposo/3d_mukongoro_county.png)<br/>
 
