@@ -6,22 +6,22 @@ After my computer took a brief hiatus to delete its own operating system, I was 
 - For this project, I attained my data from [GADM]( https://gadm.org/), which provides geospatial and population data for each country and its subdivisions. I selected Uganda and began by downloading a zip file containing the necessary shapefiles (shp). Shp files contain both geospatial information, in the form of polygons, and descriptive population measurements. After familiarizing myself with the data and producing some base level plots during week 2, week 3 began with making a geometric bar plot with a simple features object.<br/>
 - Read more about the specifics of making the bar plot [HERE](https://aeraposo.github.io/Data-440-Raposo/geo_bar_plot)<br/>
 
-![geo. bar plot](https://aeraposo.github.io/Data-440-Raposo/geo_bar.png)<br/>
+![geo_bar](https://aeraposo.github.io/Data-440-Raposo/bar_plt_small.png)<br/>
 
 **De facto description of human settlements and urban areas (accessibility 1)**<br/>
 - For this portion of the project, I generated a map of the district of Kumi, Uganda that shows areas of poplation settlement/ urban areas.<br/>
 - I selected Uganda because of the Radient Earth research I was working on at the time and thought that maps of Uganda (on of the countries of interest) may be useful in better understanding the data. I chose Kumi randomly after verifying that its population total wasn't too high for the purposes of the project.<br/>
 - To create such a map, I generated a planar point pattern(PPP) of the country. The planar point pattern is a visual representation of population dispersal. This pattern is randomly generated using the rpoint() method, which makes random predictions about population distribution based on defining features and variations in input data within a defined window (in this case, the window contained only Uganda). I also took a closer look at this area by generating a similar ppp of Kumi unioned with its neighboring districts Ngora and Bukedea.<br/>
 
-![planar point pattern](https://aeraposo.github.io/Data-440-Raposo/ppp_uga.png)<br/>
+![ppp_uga](https://aeraposo.github.io/Data-440-Raposo/ppp_small.png)<br/>
 
 Next, I generated a color-scaled map of the population density represented in the pps. I was also able to generate polygon that encircle well-defined settlements or clusters apparent in the maps, and filter out repetitive or incomplete ones. After overlaying the polygons on the maps, I was left with the following:<br/>
 
-![density plots](https://aeraposo.github.io/Data-440-Raposo/both_density.png)<br/>
+![both_density](https://aeraposo.github.io/Data-440-Raposo/dens_small.png)<br/>
 
 Using a similar process to that used to generate the above density, plots, I plotted the identified ubran settlements on the following maps- these allow us to visualize both population cluster sizes and the relative density of the clusters. One issue that I couldn't seem to solve was the density of the clusters- they just seem too high without explaination. We talked in class about how this may be random 'noise', however, all of my clusters are extremely dense.<br/>
 
-![urban areas](https://aeraposo.github.io/Data-440-Raposo/urban_areas_uga.png)<br/>
+![urban_areas_uga](https://aeraposo.github.io/Data-440-Raposo/urban_plt_small.png)<br/>
 
 I though it was interesting how settlements in Kumi seem to be clustered either on the side near Ngora, which borders a body of water and is closer to the capital (Kampala) or are on the border of Ngora. Looking back, after completing accessability 2, I think the clusters on the Bukedea side are due to increased access to roads and healthcare. I'm interested to see the 3D plot to confirm my suspicions about population clustering by water on the Ngora side.
 **Adding transportation facilities & healthcare services**<br/>
@@ -35,17 +35,17 @@ Next, I added transportation and healthcare services to the map of Kumi. I also 
   - I wanted to add a legend to these plots- I searched online and tried several methods with no success.<br/>
   - Also, my population count for Kumi totaled to 308,672. According to Google, this is an overestimation by 50,000 but I cannot see how such an error may have occured. After unioning Kumi with Ngora and Bukedea, the population total was 718,297, which is also an overestimation.
 
-![healthcare and roads](https://aeraposo.github.io/Data-440-Raposo/health_care_access.png)<br/>
+![health_care_access](https://aeraposo.github.io/Data-440-Raposo/road_health_plt_small.png)<br/>
 
 **Rendering Topography (accessibility 3)**
 For me, this was definitely the most exciting part of project 1. There is something about generating a 3d plot from seemingly uninterpretable data that is super awesome (for lack of better words)! Although I struggled with getting the settlements to shade in, I would call my 3d plot an overall success. This plot also sheds some light on the community distributions within Kumi.<br/>
 After downloading the appropriate topological data, a shp file that was read in as a raster, I cropped the data to my selected area. Then, I converted the raster to a matrix and generated a 2d plot Kumi's topology, including aquatic areas, using plot_map(). By add "ambient shaddows" and a few other commands, I generated a 3d plot of this topology using plot_3d().<br/>
 
-![topo plot 1](https://aeraposo.github.io/Data-440-Raposo/1topo.png)<br/>
+![1topo](https://aeraposo.github.io/Data-440-Raposo/3d1_plt_small.png)<br/>
 
 Although these plots are pretty zesty, they don't reveal much about the specific topography within the district. In fact, the general region of Kumi doesn't have any defined bounds in the plot so how can we be sure what or where we are really looking? To confirm that I was looking at the right place and to give some geospatial context to the topography, I overlayed the border of kumi on these plots.<br/>
 
-![topo plot 2](https://aeraposo.github.io/Data-440-Raposo/topo_outline.png)<br/>
+![topo_outline](https://aeraposo.github.io/Data-440-Raposo/3d2_plt_small.png)<br/>
 
 By plotting these additional lines, it is much more feasible to make informed observation and predictions about the different observed settlements (see observations/predictions below). For additional context, I plotted the major roads and healthcare facilities in and arround Kumi. I chose to include roads and healthcare facilties just beyond the borders because they may provide additional context to settlement locations (for example, if there was a hoptial just beyond the border that is closer than other facilities within Kumi, people may congregate closer to that border/hospital). I also labeled the county within Kumi that had the largest predicted settlement.<br/>
 
