@@ -20,6 +20,8 @@ Next, I generated a color-scaled map of the population density represented in th
 
 ![both_density](https://aeraposo.github.io/Data-440-Raposo/dens_small.png)<br/>
 
+In this density plot of Kumi, we can see approximately 12 settlements of varrying sizes. It's interesting to note how these populations seem to be clustered on the boarders and in the lower half of Kumi.<br/>
+
 Using a similar process to that used to generate the above density, plots, I plotted the identified ubran settlements on the following maps- these allow us to visualize both population cluster sizes and the relative density of the clusters. One issue that I couldn't seem to solve was the density of the clusters- they just seem too high without explaination. We talked in class about how this may be random 'noise', however, all of my clusters are extremely dense.<br/>
 
 ![urban_areas_uga](https://aeraposo.github.io/Data-440-Raposo/urban_plt_small.png)<br/>
@@ -59,3 +61,13 @@ By plotting these additional lines, it is much more feasible to make informed ob
   - One thing I noticed early on in this process was a division between clusters on either side of Kumi. One cluster lies near the border or Ngora and the other near Bukedea. The cluster near Ngora lies at the base of an area of elevation. After some research, I found out that Uganda is actually a fairly [moutainous country](https://media.springernature.com/original/springer-static/image/chp%3A10.1007%2F978-3-319-53485-5_73/MediaObjects/440493_1_En_73_Fig1_HTML.gif) because of its proximity to the Rwenzori Mountains. The cluster I mentioned is at the base of this mountain range. This makes sense becuase the soil in this area is more fertile that the surrounding area and it is easier to traverse than the more mountainous regions that surround it. On the other border, the cluster near Bukedea is closer to Lake Victoria. Without the context this topological information provides, these clusters may have seemed random but clearly, they are not (this presses one to consider other confounding variables not directly measured in data that may still be at play).<br/>
   - Its also interesting to note the topography's less obvious influences on other the placement of smaller settlements. For the few settlements scattered thtoughout the center region of Kumi, they mostly reside in areas of lower elevation. These areas also house the district's healthcare facilities. This is relfective of the challeneges and costs of building on mountainous or elevated terrain and the increased difficulty it would provide in accessing existing roads and healthcare facilities.<br/>
   - The roads that traverse Kumi follow a similar parttern in avoiding areas of elevation. Additionally, most primary roads intersect a hosptial or clinic location at some point and pass through the major settlements visible on the plot.<br/>
+**Zipf's law**<br/>
+- Also tried to graph Zipf's law and it didn't come out quite right. I think the issue was in calculating the expected frequency line.<br/>
+- First, I ranked the settlements within Kumi based on population size. Then, I used the Zipf's law implementations from class to plot the expected and observed distribution.<br/>
+
+![zipf's_law](https://aeraposo.github.io/Data-440-Raposo/zipf's_law.png)<br/>
+
+- As you can see, my plot seems to be following an inverse power distribution, which is not quite what I was expecting...<br/>
+- Anways, more generally, Zipf's law describes the inverse proportionality of the frequency of obervations to their rank.<br/>
+  - Rank describes the order (greatest to least).<br/>
+  - These power laws are present in many examples both in the natural world and in mathmatics (for example: body mass and coloric intake or word frequency both follow a Ziphian distribution).<br/>
