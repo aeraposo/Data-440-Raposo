@@ -1,4 +1,5 @@
 ## Project 1: Code red, computer meltdown in progress
+geometry: left=38mm, right=25mm, top=25mm, bottom=25mm
 
 **Creating a Geometric Bar Plot with your Simple Feature object:**<br/>
 
