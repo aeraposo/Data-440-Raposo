@@ -1,13 +1,13 @@
 ## Exploring a new R package: mlr3viz
 This week, I researched the mlr3viz package in R. This package was released in January, 2020 and is used to visualize mlr3 objects.<br/>
 
-- **mlr3 objects** are of the R6 class, which contains tasks, predictions, and other various results.<br/>
+- **mlr3 objects** are of the R6 class, which contains several subclasses such as tasks and predictions.<br/>
 
-- **Tasks** are used to access, handle, and potentially change data without directly changing the DataBackend.<br/>
+  - **Tasks** are used to access, handle, and potentially change data without directly changing the DataBackend.<br/>
 
-  - **DataBackend** is a package designed to format data into either a table, matrix, or DataFrame, depending on which implimentation you use, making it easily accessible and visable for users.<br/>
+    - **DataBackend** is a package designed to format data into either a table, matrix, or DataFrame, depending on which implimentation you use, making it easily accessible and visable for users.<br/>
   
-- **Predictions** are objects generated using the predict() function. This function is commonly used in machine learning- after training a model on a given dataset, we can ask the model to make a prediction, say classify an image as cat (0) or dog (1). The function takes input data with distinguished features and outputs a list of its predictions about the target variable. Additionally, you can provide the correct classifications, true values, etc., which will be displayed side by side with the  model's predictions.<br/>
+  - **Predictions** are objects generated using the predict() function. This function is commonly used in machine learning- after training a model on a given dataset, we can ask the model to make a prediction, say classify an image as cat (0) or dog (1). The function takes input data with distinguished features and outputs a list of its predictions about the target variable. Additionally, you can provide the correct classifications, true values, etc., which will be displayed side by side with the  model's predictions.<br/>
 
 Collectively, these objects work together as an interface that enables data flow from a given form of data storage (ie- a remote database or datasets). This is especially useful when working with large quantities of data and in scaling smaller amounts of data. Particularly, these objects have applications in machine learning where large, diversified, and scalable data are required.<br/>
 
