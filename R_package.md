@@ -23,6 +23,8 @@ This pairplot is from my final project for Applied Machine Learning, which I too
 
 ![seaborn pair plot](https://aeraposo.github.io/Data-440-Raposo/pair_plot_example.png)<br/>
 
+**Functions in mlr3viz**
+
 From modeling the performance of machine learning algorithms to allowing for visualization of data distributions and summary statistics, the applications of this package are vast. In fact, these are just a few functions of mlr3viz package and its aplications certainly stretch beyond what I have covered here (here is a [link](https://cran.r-project.org/web/packages/mlr3viz/mlr3viz.pdf) to the full documentation, which lists some more functions of the package).<br/>
 
 Sources:<br/>
