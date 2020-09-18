@@ -71,7 +71,8 @@ By plotting these additional lines, it is much more feasible to make informed ob
 ![zipf's_law](https://aeraposo.github.io/Data-440-Raposo/zipf's_law.png)<br/>
 
 - As you can see, my plot seems to be following an inverse power distribution, which is not quite what I was expecting...<br/>
-- Anways, more generally, Zipf's law describes the inverse proportionality of the frequency of obervations to their rank.<br/>
+  - This is likely due to the fact that surrounding districts have a higher population than Kumi, which has skewed my results here. For example, Kumi is relatively close to Kampala (the capital) so if I were to include points from that area and other districts, this curve would likely become more linear and more closely follow Zipf's law. When Zipf's law is in play, populations exhibit fractal-like patters. That is, if we take the plot of one district, it should look like a miniature version of the whole plot, however, there is some natural variation in human settlements so we may select a portion of the whole population that appears to be an outlier without the context of the greater area.<br/>
+- Mathematically, Zipf's law describes the inverse proportionality of the frequency of obervations to their rank.<br/>
   - Rank describes the order (greatest to least).<br/>
   - These power laws are present in many examples both in the natural world and in mathmatics (for example: body mass and coloric intake or word frequency both follow a Ziphian distribution).<br/>
   - In this example (settlements in Kumi, Uganda) rank is the order of the settlements from largest to smallest and frequency is determined by the number of inhabitants in of each settlement (this draws similarities to the frequency of words on a page)
