@@ -24,7 +24,7 @@ model <- keras_model_sequential() %>%
   layer_dense(units = 64) %>%
   layer_dense(units = 10)
 ```
-[Sounce for above info about ML](https://bradleyboehmke.github.io/HOML/index.html)<br/>
+[Source for above info about ML](https://bradleyboehmke.github.io/HOML/index.html)<br/>
 
 The mlr3viz package is useful because it allows users to produce visual aids that summarize their data or model performance, which above mlr3 objects interact with or are ingrained in. mlr3viz is capable of extrapalating several summary statistics, such as quantiles in within data distributions, means, and more.<br/>
 
@@ -41,8 +41,10 @@ This pairplot is from my final project for Applied Machine Learning, which I too
 From modeling the performance of machine learning algorithms to allowing for visualization of data distributions and summary statistics, the applications of this package are vast. In fact, these are just a few functions of mlr3viz package and its aplications certainly stretch beyond what I have covered here (here is a [link](https://cran.r-project.org/web/packages/mlr3viz/mlr3viz.pdf) to the full documentation, which lists some more functions of the package).<br/>
 
 **Relation to course material**<br/>
-Machine learning is becoming increasingly relevant in other fields, ouside of data and computer science. Particularly, in biology, machine learning in R is being used to model changes in population genetics. One model is able to predict genomic sequences of new generations within a population or settlement and this can be used to predict overall genomic and evolutionary trends in populations. This model can also be used to predict changes in gene pools after different events (ie- changes in the environment that might favor certain traits). 
-Learn more about this research [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5905713/)
+Machine learning is becoming increasingly relevant in other fields, ouside of data and computer science. Particularly, in biology, machine learning in R is being used to model changes in population genetics. One model is able to predict genomic sequences of new generations within a population or settlement and this can be used to predict overall genomic and evolutionary trends in populations. This model can also be used to predict changes in gene pools after different events (ie- changes in the environment that might favor certain traits).<br/>
+- These methods have proved to be more accurate an efficient than computing traditional statistics used in this field.<br/>
+- Learn more about this research [here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5905713/)<br/>
+An additional application is in population size prediction from satelite images- over the summer I coded a CNN to predict population in Accra, Ghana (performance of such models can be visualizes using mlr3viz)<br/>
 
 Sources:<br/>
 https://cran.r-project.org/web/packages/mlr3viz/index.html <br/>
