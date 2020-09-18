@@ -10,8 +10,23 @@ This week, I researched the mlr3viz package in R. This package was released in J
   - **Predictions** are objects generated using the predict() function. This function is commonly used in machine learning- after training a model on a given dataset, we can ask the model to make a prediction, say classify an image as cat (0) or dog (1). The function takes input data with distinguished features and outputs a list of its predictions about the target variable. Additionally, you can provide the correct classifications, true values, etc., which will be displayed side by side with the  model's predictions.<br/>
 
 Collectively, these objects work together as an interface that enables data flow from a given form of data storage (ie- a remote database or datasets). This is especially useful when working with large quantities of data and in scaling smaller amounts of data. Particularly, these objects have applications in machine learning where large, diversified, and scalable data are required.<br/>
+- Machine learning in R actually has a lot of similarities to ML is python! All of the [same techniques are available](https://bradleyboehmke.github.io/HOML/index.html) and their implementation in R might look pretty familiar to Python users! For example,
+```
+# linear regression
+lm(y_value~x_value, data = your_source)
+# make is a multiple linear regression
+lm(y_value~x_value + other_variable + another_if_you_want_to, data = your_source)
+# clustering techniques such as k nearest neighbors (blueprint is an object containing some model presets such as step size, etc., cv is an object that specifies controls about sampling from the data such as allowing for resampling, hyper_grid points to an object that specifies how we want our graph of the knn validation as we increase the number of neighbors so we can select an appropriate number for k neighbors (this validation is measured with the ROC of the cross validation, as seen in the metric input))
+train(blueprint, data = your_data, method = "knn", trControl = cv, tuneGrid = hyper_grid, metric = "ROC"
+# Here is an example from a deep learning neural network (DNN). Just like in python, we can use keras!
+model <- keras_model_sequential() %>%
+  layer_dense(units = 128, input_shape = ncol(mnist_x)) %>%
+  layer_dense(units = 64) %>%
+  layer_dense(units = 10)
+```
+[Sounce for above info about ML](https://bradleyboehmke.github.io/HOML/index.html)<br/>
 
-The mlr3viz package is useful because it allows users to produce visual aids that summarize their data, which above mlr3 objects interact with. mlr3viz is capable of extrapalating several summary statistics, such as quantiles in within data distributions, means, and more.<br/>
+The mlr3viz package is useful because it allows users to produce visual aids that summarize their data or model performance, which above mlr3 objects interact with or are ingrained in. mlr3viz is capable of extrapalating several summary statistics, such as quantiles in within data distributions, means, and more.<br/>
 
 After importing the package, you can produce the following plots by calling the autoplot(your_mlr3_object) function. This returns a ggplot2 object, which can be customized with labels, different colors, etc, just as you would do with standard ggplot arguments. The plot below is a pair plot containing a few of the plot types that the package supports.<br/>
 
