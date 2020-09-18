@@ -74,3 +74,4 @@ By plotting these additional lines, it is much more feasible to make informed ob
 - Anways, more generally, Zipf's law describes the inverse proportionality of the frequency of obervations to their rank.<br/>
   - Rank describes the order (greatest to least).<br/>
   - These power laws are present in many examples both in the natural world and in mathmatics (for example: body mass and coloric intake or word frequency both follow a Ziphian distribution).<br/>
+  - In this example (settlements in Kumi, Uganda) rank is the order of the settlements from largest to smallest and frequency is determined by the number of inhabitants in of each settlement (this draws similarities to the frequency of words on a page)
