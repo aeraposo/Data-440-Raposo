@@ -51,3 +51,5 @@ plot(kumi_houses, cex = 0.15)
 dev.off()
 ```
 - I was able to determine the appropriate columns to subset and the distric number of Kumi by searching my .DO files and reading through the DHS report of the data. I also found the columns for the sex of household members (hv104_01 through hv104_27) and age of household members (hv105_01 through hv105_27).<br/>
+- Here is the ppp (planar point pattern) of household loactions in Kumi:<br/>
+![kumi houses](https://aeraposo.github.io/Data-440-Raposo/houses_ppp.png)<br/>
