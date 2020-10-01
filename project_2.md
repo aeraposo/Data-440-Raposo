@@ -6,24 +6,48 @@
 - Within the survey, households fall within enumeration areas (analogous to census blocks) containing a given number of households and people residing in them for each area.<br/>
 *Reasons to generate an accurate synthetic population:*<br/>
 - Cost efficiency<br/>
-- Infrequency of surveying- we can model changes in a population between updates in data or recollection
-- Keep up with demand for infrastructure
-Synthetic population (multinomial logistic regression and probab)
-Don’t want to just replicate sampled units to make 
-To ensure this, we will perform a multinomial logistic regression that predicts the dependent variable from a set using the conditional probability for all possible outcomes
-We will uge, sex, household size to predict religion
-Use these predictions to predict.
-etc.
-We can visualize the distribution of these categorizations/ measurements using the spatial probability density functions we used to make maps of population density/distribution.
+- Infrequency of surveying- we can model changes in a population between updates in data or recollection<br/>
+- Keep up with demand for infrastructure<br/>
+*Progress thus far:*<br/>
+```
+# read in the data
+uga_pop20 <- raster("/Users/aeraposo/uga_ppp_2020.tif")
+uga_adm2 <- read_sf("/Users/aeraposo/Data-440-Raposo/project_1/gadm36_UGA_shp/gadm36_UGA_2.shp")
 
+# DHS data
+persons <- read.dta("UG_2016_DHS_09292020_1718_153327/UGIR7BDT/UGIR7BFL.DTA")
+households <- read_dta("UG_2016_DHS_09292020_1718_153327/UGHR7BDT/UGHR7BFL.DTA")
 
+# subset desired area
+kumi <- uga_adm2 %>%
+  filter(NAME_2 == 'Kumi')
 
-.DO file
-Import households survey from DHS dataset
-Identify:
-Survey weights
-Number of household members
-Location of your selected research area
-Gender of household members
-Age of household members
-Post results to your GitHub pages site and link in your index
+# crop and mask the raster
+kumi_pop20 <-crop(uga_pop20, kumi)
+kumi_pop20 <-mask(kumi_pop20, kumi)
+
+# get total population size
+pop <- floor(cellStats(kumi_pop20,'sum'))
+
+# find number of houses (divide total pop by average number of people per household)
+houses <- pop/4.7
+
+# subset households in kumi
+kumi_sub <- subset(households, shdistrict == 208)
+sum(households$hv005)
+table(kumi_sub$hv009)
+
+st_write(kumi, "kumi.shp", delete_dsn = TRUE)
+kumi_mt <- readShapeSpatial("kumi.shp")
+win <- as(kumi_mt,"owin")
+
+# generate a ppp (planar point patter) of households in Kumi, Uganda
+kumi_houses <- rpoint(houses, f = as.im(kumi_pop20),win = win)
+
+# plot and save your ppp
+png("kumi_ppp_house.png")
+plot(win, main = NULL)
+plot(kumi_houses, cex = 0.15)
+dev.off()
+```
+- I was able to determine the appropriate columns to subset and the distric number of Kumi by searching my .DO files and reading through the DHS report of the data. I also found the columns for the sex of household members (hv104_01 through hv104_27) and age of household members (hv105_01 through hv105_27).<br/>
