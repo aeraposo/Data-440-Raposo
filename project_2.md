@@ -94,4 +94,4 @@ hhs_locs = st_as_sf(pts, coords = c("x", "y"),
                     crs = st_crs(uga_adm0))
 ```
 
-calculated error at the adm1 level: 0.001655312
+calculated error at the adm1 level: 0.0008717575
