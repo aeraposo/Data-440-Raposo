@@ -95,3 +95,4 @@ hhs_locs = st_as_sf(pts, coords = c("x", "y"),
 ```
 
 calculated error at the adm1 level: 0.0008717575
+error after pivoting and generating people- 0.0156926
