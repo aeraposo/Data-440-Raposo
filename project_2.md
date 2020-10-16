@@ -56,3 +56,42 @@ dev.off()
 
 *Kumi households:* Here is the ppp (planar point pattern) of household loactions in Kumi:<br/>
 ![kumi houses](https://aeraposo.github.io/Data-440-Raposo/houses_ppp.png)<br/>
+
+*Part 2:*
+
+After some trial and error, I was able to produce a synthetic population and a more accurate plot of household distributions. To recap, I began by reading on my DTS files, which contain people and household data- data including the locations of households, details about the residents of each household, and general qualities of the household (ie, household size).<br/>
+Particularly, we used the information collected on individuals' wealth, education, age, sex, household size, and location to inform predictions about these qualities in the synthetic population. After extracting the above information from the household data gathered from a DTA file, I combined the respective columns into a new dataframe called hhs.<br/>
+
+```
+unit <- households$hv004
+weights <- households$hv005 / 1000000
+location <- as_factor(households$shdistrict)
+size <- households$hv009
+sex <- households[ , 283:309]
+age <- households[ , 310:336]
+education <- households[ , 364:390]
+wealth <- households$hv270
+hhs <- cbind.data.frame(unit, weights, location, size, sex, age, education,wealth)
+```
+Next, I read in several shapefiles that contain geospatial infromation about the various levels of subdivisions within Uganda. The 0-level administrative subdivision (adm0) represents a detail on the scale of the entire country, the 1st level details the districts, and the 2nd level details smaller cities and counties. I also subset my adm1 by selecting pertinent data to the district of Kumi. I used this subset to crop and mask my population raster (a planar point pattern) to just view Kumi.<br/>
+
+PLOT HERE!<br/>
+
+Next, using the floor function, I determined the total population by summing the values in my population raster. I then divided this value by the average household size, which gave me the total number of households. Next, I defined a window based on my adm0, which I used to define the scope of my plots. Using the number of households, I was then able to define the predicted planar locations of these houses based on information stored in the population raster within my defined window. This gave me geographic coordinates of the housholds, which I saved as the variable 'hhs_locs'.<br/>
+
+```
+uga_hhs_n <- floor(cellStats(uga_pop20, 'sum') / mean(hhs$size))
+
+st_write(uga_adm0, "uga0.shp", delete_dsn=TRUE)
+uga0_mt <- readShapeSpatial("uga0.shp")
+win <- as(uga0_mt, "owin")
+
+hhs_pts <- rpoint(uga_hhs_n, f = as.im(uga_pop20), win = win)
+
+pts <- cbind.data.frame(x = hhs_pts$x, y = hhs_pts$y)
+
+hhs_locs = st_as_sf(pts, coords = c("x", "y"),
+                    crs = st_crs(uga_adm0))
+```
+
+calculated error at the adm1 level: 0.001655312
