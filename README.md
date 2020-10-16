@@ -5,5 +5,5 @@
 3. [8.26.20: Extracting Populations from a Raster and Aggregating to each Unit](https://aeraposo.github.io/Data-440-Raposo/Raster_to_map)
 5. [Project 1](https://aeraposo.github.io/Data-440-Raposo/project_1)
 6. [9.4.20: R Package Presentation, mlr3viz](https://aeraposo.github.io/Data-440-Raposo/R_package)
-7. [Data science insights 2](https://aeraposo.github.io/Data-440-Raposo/ds_insights_2.md)
+7. [Data science insights 2](https://aeraposo.github.io/Data-440-Raposo/ds_insights_2)
 8. [Project 2](https://aeraposo.github.io/Data-440-Raposo/project_2)
