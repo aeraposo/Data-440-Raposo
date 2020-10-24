@@ -70,7 +70,7 @@ hhid <- as_factor(households$hhid)
 # new dataframe
 hhs <- cbind.data.frame(hhid,unit, weights, location, size, sex, age, education,wealth)
 ```
-Next, I read in several shapefiles that contain geospatial infromation about the various levels of subdivisions within Uganda. The 0-level administrative subdivision (adm0) represents a detail on the scale of the entire country, the 1st level details the districts, and the 2nd level details smaller cities and counties. I also subset my adm1 by selecting pertinent data to the district of Kumi. I used this subset to crop and mask my population raster (a planar point pattern) to just view Kumi.<br/>
+Next, I read in several shapefiles that contain geospatial infromation about the various levels of subdivisions within Uganda. The 0-level administrative subdivision (adm0) represents a detail on the scale of the entire country, the 1st level details the districts, and the 2nd level details smaller cities and counties. I also subset my adm2 by selecting pertinent data to the district of Kumi. I used this subset to crop and mask my population raster (a planar point pattern) to just view Kumi.<br/>
 
 Next, using the floor function, I determined the total population by summing the values in my population raster. I then divided this value by the average household size, which gave me the total number of households.<br/>
 
@@ -114,12 +114,12 @@ Next, to hone in on a smaller area of Uganda, I began working with data specific
 kumi_hhs_n <- floor(cellStats(kumi_pop20, 'sum') / mean(subset(hhs, location == "kumi")$size))
 ```
 
-I also saved the subset 
+I also saved the Kumi subset of the Adm2 data for easy access
 ```
 st_write(kumi, "kumi.shp", delete_dsn=TRUE)
 kumi_mt <- readShapeSpatial("kumi.shp")
 win <- as(kumi_mt, "owin")
 ```
 
-calculated error at the adm1 level: 0.0008717575
+calculated error at the adm2 level: 0.0008717575
 error after pivoting and generating people- 0.0156926
