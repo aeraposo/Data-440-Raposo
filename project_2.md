@@ -70,6 +70,50 @@ hhid <- as_factor(households$hhid)
 # new dataframe
 hhs <- cbind.data.frame(hhid,unit, weights, location, size, sex, age, education,wealth)
 ```
+
+Next, I disaggregated the data to the individual/person level by pivoting the age, gender, and education columns so that each row represents an individual within the population of Uganda, rather than an entire household.<br/>
+
+```
+gender_pivot <- hhs %>% 
+  gather(key = "pnmbr", value = "gender", colnames(hhs)[6:32], na.rm = TRUE) # revise after adding new variable
+gender_pivot <- gender_pivot[ ,-6:-59]
+
+age_pivot <- hhs %>%
+  gather(key = "pnmbr", value = "age", colnames(hhs)[33:59], na.rm = TRUE)
+age_pivot <- age_pivot[ ,-6:-59]
+
+edu_pivot <- hhs %>%
+  gather(key = "pnmbr", value = "edu", colnames(hhs)[60:86], na.rm = TRUE)
+edu_pivot <- edu_pivot[ ,-6:-59]
+
+gender_pivot$id <- paste(gender_pivot$hhid, substr(gender_pivot$pnmbr, 7,8), sep = '')
+age_pivot$id <- paste(age_pivot$hhid, substr(age_pivot$pnmbr, 7,8), sep = '')
+edu_pivot$id <- paste(edu_pivot$hhid, substr(edu_pivot$pnmbr, 7,8), sep = '')
+pns <- merge(gender_pivot, age_pivot, by = 'id')
+pns <- merge(pns, edu_pivot, by = 'id')
+# pick your cols- age, gender, edu, wealth, hh num
+p <- pns[ ,c(1,9,17:25)]
+pns <- p
+```
+
+After pivoting the data, I compared the person and household level errors. The person-level error is elevaled because of the survey design and since we must extrapalate household data to represent the individuals who reside within both the surveyed and unsurveyed households (ideally, the sum of person-level weights should equal the number of individual level observations (rows)).
+
+```
+# check household level error
+sum(hhs$weights)
+nrow(hhs)
+
+# check person level error
+sum(pns$weights) 
+nrow(pns)
+nrow(pns) / cellStats(uga_pop20, 'sum') # portion of population we surveyed
+
+pns_numeric <- pns
+pns_numeric$location <- as.numeric(pns_numeric$location)
+write.csv(pns_numeric[ ,c(4:6,8:10)], file = "pns.csv")
+```
+
+
 Next, I read in several shapefiles that contain geospatial infromation about the various levels of subdivisions within Uganda. The 0-level administrative subdivision (adm0) represents a detail on the scale of the entire country, the 1st level details the districts, and the 2nd level details smaller cities and counties. I also subset my adm2 by selecting pertinent data to the district of Kumi. I used this subset to crop and mask my population raster (a planar point pattern) to just view Kumi.<br/>
 
 Next, using the floor function, I determined the total population by summing the values in my population raster. I then divided this value by the average household size, which gave me the total number of households.<br/>
@@ -78,7 +122,7 @@ Next, using the floor function, I determined the total population by summing the
 uga_hhs_n <- floor(cellStats(uga_pop20, 'sum') / mean(hhs$size))
 ```
 
-Next, I defined a window based on my adm0, which I used to define the scope of my plots. Using the number of households, I was then able to define the predicted planar locations of these houses based on information stored in the population raster within my defined window. This gave me geographic coordinates of the housholds, which I saved as the variable 'hhs_locs'.<br/>
+Next, I defined a window based on my adm0, which I used to define the scope of my plots. Using the number of households, I was then able to define the predicted planar locations of these houses based on information stored in the population raster within my defined window. Particularly, the rpoint method generates the locations of the households (the number of which is uga_hhs_n), which are distributed throughout the defined window (win) according to the population data stored in uga_pop20. Although this distribution was fairly accurate, it could have been improved by using data from a corresponding year to the year of collection of the DHS data or by requesting the associated restricted access GPS data, available through DHS. This gave me spatial coordinates of the housholds, which I saved as the variable 'hhs_locs'.<br/>
 
 ```
 st_write(uga_adm0, "uga0.shp", delete_dsn=TRUE)
@@ -93,7 +137,7 @@ hhs_locs = st_as_sf(pts, coords = c("x", "y"),
                     crs = st_crs(uga_adm0))
 ```
 
-- The next task was to generate the households. I began the process by taking a slice (a sample) from the hhs dataframe. This slice contained 9,062,534 samples (sampling with replacement so we don't run out of data), which is the number we determined as the total number of house in Uganda. I then added an id column, which uniquely identifies each sample and joined the household locations with the samples taken based on corresponding id numbers. This step is crucial becuase without matching samples to the appropriate location, our population will be essentially random and will not likely resemble the actual population. The absolute weighted error of this sythetic population is 0 since all the observations in the slice are retrieved from the hhs data.<br/>
+- The next task was to generate the households. I began the process by taking a slice (a sample) from the hhs dataframe. This slice contained 9,062,534 samples (sampling with replacement so we don't run out of data), which is the number we determined as the total number of house in Uganda. I then added an id column, which uniquely identifies each sample and joined the household locations with the samples taken based on corresponding id numbers. This step is crucial becuase without matching samples to the appropriate location, our population will be essentially random and will not likely resemble the actual population. The absolute weighted error of this sythetic population is 0.001120013. This error will certainly increase as we begin modeling adm1 and adm2 locations, since this error is compounded as we magnify the scope.<br/>
 
 ```
 hhs_samp <- slice_sample(hhs, n = uga_hhs_n, replace = TRUE)[ ,c(2,4:86)]
@@ -104,22 +148,97 @@ hhs_samp$id <- 1:nrow(hhs_samp)
 uganda_joined <- left_join(hhs_locs, hhs_samp, by = c("id" = "id"))
 ```
 
-Here is a plot of the distribution of samples across Uganda, taken above. <br/>
+Now that we have the household locations, we can distribute them across Uganda (the adm0 level). Here is the plot: <br/>
 
 ![plot 2](https://aeraposo.github.io/Data-440-Raposo/plot2prj2.png)<br/>
 
-Next, to hone in on a smaller area of Uganda, I began working with data specific to Kumi.<br/>
+Next, to hone in on a smaller area of Uganda, I began working with data specific to Kumi, an adm1 district. First, I calculated the average household size within Kumi. I accomplished this by dividing the total population of Kumi (stored as kumi_pop20) by the average household size in Kumi (attained by subsetting the hhs based on location, indexing the size column, and using the mean() method to find the average). Then, I read in the Kumi shapefile and used it to define the window in which we will later distribute the households.<br/>
 
 ```
 kumi_hhs_n <- floor(cellStats(kumi_pop20, 'sum') / mean(subset(hhs, location == "kumi")$size))
-```
 
-I also saved the Kumi subset of the Adm2 data for easy access
-```
 st_write(kumi, "kumi.shp", delete_dsn=TRUE)
 kumi_mt <- readShapeSpatial("kumi.shp")
 win <- as(kumi_mt, "owin")
 ```
 
+Again, using rpoint, I determined the locations of the households within Kumi based on population data stored in kumi_pop20 as distributed these points within the defined window. I stored the points with their spatial locations in the object adm1_locs.<br/>
+
+```
+hhs_adm1_pts <- rpoint(kumi_hhs_n, f = as.im(kumi_pop20), win = win)
+
+adm1_pts <- cbind.data.frame(x = hhs_adm1_pts$x, y = hhs_adm1_pts$y)
+
+adm1_locs = st_as_sf(adm1_pts, coords = c("x", "y"),
+                     crs = st_crs(uga_adm1))
+```
+
+Before proceeding to plot these generated points, I compared the findings of my synthetic households within Kumi (generated above) to the actual households reported in the DHS data. In doing so, I found that the number of households in Kumi was being underpredicted by about 50 households (~102 vs ~150). This is likely due to the survey design and the fact that under 20,000 surveyed households were being used to represent all of Uganda (the general lack of data for Kumi contributed to this error). This presses one to consider how data may have been generalized by sampling so few people within this area. Can we really assume that this household sample is actually representative of Kumi as a whole? Perhaps is would be more realistic and representative of the actual population if we generated Kumi households based on a random sample of the rest of Uganda. In order to consider this possibility, I generated the below plot.
+
+```
+kumi_analyze <- subset(hhs, location == "kumi")
+sum(kumi_analyze$weights)
+
+nrow(kumi_analyze)
+table(hhs$size)
+table(kumi_analyze$size)
+
+# plot- compare sample from whole pop to Kumi sample
+
+adm1_sampP <- slice_sample(hhs, n = kumi_hhs_n, replace = TRUE)
+adm1_sampP1 <- slice_sample(hhs[which(location == "kumi"), ], n = kumi_hhs_n, replace = TRUE)
+
+ggplot() +
+  geom_density(data = adm1_sampP,
+               aes(x = size), fill = "gold")  +
+  geom_density(data = adm1_sampP1,
+               aes(x = size), colour = "green") 
+```
+
+![plot 4](https://aeraposo.github.io/Data-440-Raposo/plot4prj2.png)<br/>
+
+As you can see, the sample from Kumi is not entirely representative of the variation within its population so, in this case, a sample from whole population would likely favor a lower error. Again, this is likely a product of the lack of data specific to Kumi. One example of how these samples are too homogenous is evident in the predictions of numbers of larger households, which were severly underpredicted.<br/>
+
+After opting to use samples from the adm0 level, I combound the samples with the household locations in a dataframe, calculated the error, and plotted the households across Kumi. Here, the weighted error was 0.001305015. A slight increase from predictions at the adm0 level, as predicted.<br/>
+
+```
+kumi_joined <- cbind.data.frame(kumi_samp, adm1_locs)
+# calculate weighted error
+abs((nrow(kumi_joined) - sum(kumi_joined$weights)) / nrow(kumi_joined))
+
+# plot the households in Kumi
+plot <- ggplot() +
+  geom_sf(data = kumi) +
+  geom_sf(data = kumi_joined,
+          size = .01,
+          alpha = .05)
+
+ggsave("kumi.png", plot, width = 10, height = 10, dpi = 300)
+```
+
+![plot 5](https://aeraposo.github.io/Data-440-Raposo/plot5prj2.png)<br/>
+
+Just as with the adm0 data, I pivoted the adm1 data to represent individual residents within Kumi.<br/>
+
+```
+gender_pivot_adm1 <- kumi_joined[,-32:-85]
+gender_pivot_adm1 <- gender_pivot_adm1 %>%
+  gather(key = "pnmbr", value = "gender", colnames(gender_pivot_adm1)[5:31], na.rm = TRUE) # revise after adding new variable
+
+age_pivot_adm1 <- kumi_joined[,c(-5:-31,-59:-85)]
+age_pivot_adm1 <- age_pivot_adm1 %>%
+  gather(key = "pnmbr", value = "age", colnames(age_pivot_adm1)[ 5:31], na.rm = TRUE)
+
+edu_pivot_adm1 <- kumi_joined[,-5:-58]
+edu_pivot_adm1 <- edu_pivot_adm1 %>%
+  gather(key = "pnmbr", value = "edu", colnames(edu_pivot_adm1)[ 5:31], na.rm = TRUE)
+
+gender_pivot_adm1$id <- paste(gender_pivot$hhid, substr(gender_pivot_adm1$pnmbr, 7,8), sep = '')
+age_pivot_adm1$id <- paste(age_pivot$hhid, substr(age_pivot_adm1$pnmbr, 7,8), sep = '')
+edu_pivot_adm1$id <- paste(edu_pivot$hhid, substr(edu_pivot_adm1$pnmbr, 7,8), sep = '')
+```
+
+
+At the adm1 level, 
 calculated error at the adm2 level: 0.0008717575
 error after pivoting and generating people- 0.0156926
