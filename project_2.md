@@ -239,6 +239,11 @@ edu_pivot_adm1$id <- paste(edu_pivot$hhid, substr(edu_pivot_adm1$pnmbr, 7,8), se
 ```
 
 
-At the adm1 level, 
+At the adm1 level, the error was ????
+
+Part of what allows us to extrapalate details about an entire population from a smaller survey or sample is homogeneity within the data. In other words, in many respects, measures of wealth, eduction, etc. are relatively homogenous when considering the enirity of a contry. To visualize the homogeneity with the data, I produced the following heat maps.
+
+Lastly, using the tidymodels, random forest, and keras, I was able to (attempt to) build several models to model the above synthetic populations. Although many of my models
+
 calculated error at the adm2 level: 0.0008717575
 error after pivoting and generating people- 0.0156926
