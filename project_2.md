@@ -54,7 +54,7 @@ dev.off()
 ![plot 1](https://aeraposo.github.io/Data-440-Raposo/plot1prj2.png)
 
 After some trial and error, I was able to produce a synthetic population and a more accurate plot of household distributions. The data read in above includes the locations of households, details about the residents of each household, and general qualities of the household (ie, household size).<br/>
-Particularly, we used the information collected on individuals' wealth, education, age, sex, household size, and location to inform predictions about these qualities in the synthetic population. After extracting the above information from the household data gathered from a DTA file, I combined the respective columns into a new dataframe called hhs.<br/>
+Particularly, we used the information collected on individuals' wealth, education, age, sex, household size, household unit (ultimate area unit) and location to inform predictions about these qualities in the synthetic population. Each observation was also tagged with an hhid (an identification #). After extracting the above information from the household data gathered from a DTA file, I combined the respective columns into a new dataframe called hhs.<br/>
 
 ```
 unit <- households$hv004
@@ -71,7 +71,7 @@ hhid <- as_factor(households$hhid)
 hhs <- cbind.data.frame(hhid,unit, weights, location, size, sex, age, education,wealth)
 ```
 
-Next, I disaggregated the data to the individual/person level by pivoting the age, gender, and education columns so that each row represents an individual within the population of Uganda, rather than an entire household.<br/>
+Next, I disaggregated the data to the individual/person level by pivoting the age, gender, and education columns so that each row represents an individual within the population of Uganda, rather than an entire household. Because of the quantity of data, this step presented challenges in locating the appropriate columns and in long run times, as this data pivoted to represent over 9.5 million people.<br/>
 
 ```
 gender_pivot <- hhs %>% 
@@ -148,7 +148,7 @@ hhs_samp$id <- 1:nrow(hhs_samp)
 uganda_joined <- left_join(hhs_locs, hhs_samp, by = c("id" = "id"))
 ```
 
-Now that we have the household locations, we can distribute them across Uganda (the adm0 level). Here is the plot: <br/>
+Now that we have the household locations, we can distribute them across Uganda (the adm0 level). Its interesting to note the lack of households in the northern portion of Uganda. After some research, I believe this pattern is due to political conflict that deturs individuals from living in this region. More information can be found [here](https://www.crisisgroup.org/africa/horn-africa/uganda/northern-uganda-understanding-and-solving-conflict) <br/>
 
 ![plot 2](https://aeraposo.github.io/Data-440-Raposo/plot2prj2.png)<br/>
 
@@ -217,6 +217,8 @@ ggsave("kumi.png", plot, width = 10, height = 10, dpi = 300)
 
 ![plot 5](https://aeraposo.github.io/Data-440-Raposo/plot5prj2.png)<br/>
 
+At the adm1 level, we can observe distinct clusters within the households of Kumi. This is interesting when considering the my results from project 1, which follow a very similar trend in houshold distribution.<br/>
+
 Just as with the adm0 data, I pivoted the adm1 data to represent individual residents within Kumi. This pivoted data resulted in an error of 0.001305015 at the individual level, aslight increase from predictions at the adm0 level, as predicted.<br/>
 <br/>
 
@@ -242,6 +244,6 @@ Part of what allows us to extrapalate details about an entire population from a 
 
 ![heat map](https://aeraposo.github.io/Data-440-Raposo/hmprj2.png)<br/>
 
-Lastly, using the tidymodels, random forest, and keras, I was able to (attempt to) build several models to model the above synthetic populations. Although many of the models would not due to the large quantites of data I was working with, an accuracy of ~17% was achieved by one model (the confusion matrix is pictured below). Although this accuracy is quite low, it does provide assurance that a synthetic population could be generated at this scale. Some things that could be done to improve this accuracy are <br/>
+Lastly, using the tidymodels, random forest, and keras, I was able to (attempt to) build several models to model the above synthetic populations. Although many of the models would not due to the large quantites of data I was working with, an accuracy of ~17% was achieved by one model (the confusion matrix is pictured below). Although this accuracy is quite low and it may not be an ideal representation of the conntry as a whole, it does provide assurance that a more accurate synthetic population could be generated at this scale. Some things that could be done to improve this accuracy are <br/>
 - making changes to the model presents: I'm not familiar with the various optional aruments in building these models in R, however, in Python, changing the number of epochs, the quantity of data the model in trained on, etc. can aid in appropriately fitting the model.<br/>
 - using data from corresponding years: as mentioned above, I used DHS data from 2020, which is not the year my population data from GADM was retrieved. The disimilarities among the datasets may have resulted in some error that was amplified through pivoting and making predictions on the mismatched data.<br/>
