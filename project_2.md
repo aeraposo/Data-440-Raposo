@@ -152,6 +152,8 @@ Now that we have the household locations, we can distribute them across Uganda (
 
 ![plot 2](https://aeraposo.github.io/Data-440-Raposo/plot2prj2.png)<br/>
 
+![plot 2.2](https://aeraposo.github.io/Data-440-Raposo/plot2.2_prj2.png)<br/>
+
 Next, to hone in on a smaller area of Uganda, I began working with data specific to Kumi, an adm1 district. First, I calculated the average household size within Kumi. I accomplished this by dividing the total population of Kumi (stored as kumi_pop20) by the average household size in Kumi (attained by subsetting the hhs based on location, indexing the size column, and using the mean() method to find the average). Then, I read in the Kumi shapefile and used it to define the window in which we will later distribute the households.<br/>
 
 ```
@@ -173,7 +175,7 @@ adm1_locs = st_as_sf(adm1_pts, coords = c("x", "y"),
                      crs = st_crs(uga_adm1))
 ```
 
-Before proceeding to plot these generated points, I compared the findings of my synthetic households within Kumi (generated above) to the actual households reported in the DHS data. In doing so, I found that the number of households in Kumi was being underpredicted by about 50 households (~102 vs ~150). This is likely due to the survey design and the fact that under 20,000 surveyed households were being used to represent all of Uganda (the general lack of data for Kumi contributed to this error). This presses one to consider how data may have been generalized by sampling so few people within this area. Can we really assume that this household sample is actually representative of Kumi as a whole? Perhaps is would be more realistic and representative of the actual population if we generated Kumi households based on a random sample of the rest of Uganda. In order to consider this possibility, I generated the below plot.
+Before proceeding to plot these generated points, I compared the findings of my synthetic households within Kumi (generated above) to the actual households reported in the DHS data. In doing so, I found that the number of households in Kumi was being underpredicted by about 50 households (~102 vs ~150). This is likely due to the survey design and the fact that under 20,000 surveyed households were being used to represent all of Uganda (the general lack of data for Kumi contributed to this error). This presses one to consider how data may have been generalized by sampling so few people within this area. Can we really assume that this household sample is actually representative of Kumi as a whole? Perhaps is would be more realistic and representative of the actual population if we generated Kumi households based on a random sample of the rest of Uganda. In order to consider this possibility, I generated the below plot.<br/>
 
 ```
 kumi_analyze <- subset(hhs, location == "kumi")
@@ -200,6 +202,7 @@ ggplot() +
 As you can see, the sample from Kumi is not entirely representative of the variation within its population so, in this case, a sample from whole population would likely favor a lower error. Again, this is likely a product of the lack of data specific to Kumi. One example of how these samples are too homogenous is evident in the predictions of numbers of larger households, which were severly underpredicted.<br/>
 
 After opting to use samples from the adm0 level, I combound the samples with the household locations in a dataframe, calculated the error, and plotted the households across Kumi. Here, the weighted error was 0.0008717575 at the household level. <br/>
+
 ```
 kumi_joined <- cbind.data.frame(kumi_samp, adm1_locs)
 # calculate weighted error
@@ -220,7 +223,6 @@ ggsave("kumi.png", plot, width = 10, height = 10, dpi = 300)
 At the adm1 level, we can observe distinct clusters within the households of Kumi. This is interesting when considering the my results from project 1, which follow a very similar trend in houshold distribution.<br/>
 
 Just as with the adm0 data, I pivoted the adm1 data to represent individual residents within Kumi. This pivoted data resulted in an error of 0.001305015 at the individual level, aslight increase from predictions at the adm0 level, as predicted.<br/>
-<br/>
 
 ```
 gender_pivot_adm1 <- kumi_joined[,-32:-85]
