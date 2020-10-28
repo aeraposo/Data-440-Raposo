@@ -250,4 +250,8 @@ Lastly, using the tidymodels, random forest, and keras, I was able to (attempt t
 - making changes to the model presents: I'm not familiar with the various optional aruments in building these models in R, however, in Python, changing the number of epochs, the quantity of data the model in trained on, etc. can aid in appropriately fitting the model.<br/>
 - using data from corresponding years: as mentioned above, I used DHS data from 2020, which is not the year my population data from GADM was retrieved. The disimilarities among the datasets may have resulted in some error that was amplified through pivoting and making predictions on the mismatched data.<br/>
 
-![confusion matrix](https://aeraposo.github.io/Data-440-Raposo/cmprj2.png)
+![confusion matrix](https://aeraposo.github.io/Data-440-Raposo/cmprj2.png)<br/>
+
+Here is the planar point patern of my final synthetic population of ~325,000 people!<br/>
+
+![Kumi sythetic pop](https://aeraposo.github.io/Data-440-Raposo/synpop_prj2.png)
