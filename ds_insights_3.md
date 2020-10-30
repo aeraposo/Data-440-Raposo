@@ -13,7 +13,7 @@ After their initial success with the random forest model, researchers attempted 
 On the verge of the unknown, expanding our knowledge of the universe would be an impossible task without the power of machine learning.<br/>
 
 Sources:<br/>
-[](http://www.columbia.edu/~jwp2128/Teaching/E6720/BayesianModelsMachineLearning2016.pdf)<br/>
-[](https://builtin.com/data-science/random-forest-algorithm#how)<br/>
-[](https://www.nasa.gov/feature/goddard/2019/nasa-takes-a-cue-from-silicon-valley-to-hatch-artificial-intelligence-technologies)<br/>
-[](https://www.jpl.nasa.gov/news/news.php?feature=7756)<br/>
+[Bayesian models](http://www.columbia.edu/~jwp2128/Teaching/E6720/BayesianModelsMachineLearning2016.pdf)<br/>
+[Random forest](https://builtin.com/data-science/random-forest-algorithm#how)<br/>
+[AI at NASA](https://www.nasa.gov/feature/goddard/2019/nasa-takes-a-cue-from-silicon-valley-to-hatch-artificial-intelligence-technologies)<br/>
+[More AI at NASA](https://www.jpl.nasa.gov/news/news.php?feature=7756)<br/>
