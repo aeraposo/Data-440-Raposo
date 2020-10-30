@@ -10,4 +10,10 @@ When Nasa first introduced AI and machine learning practices, researchers opted 
 
 After their initial success with the random forest model, researchers attempted to train a Bayesian model. The motivation for the change rested mainly on these models’ ability to provide a measure of certainty in predictions, which is extremely important when considering the financial implications of a misclassification. Bayesian models are trained by sifting through provided data, assigning and updating probabilities of each classification as it goes. After training, the model uses its constructed predictive distributions to classify new data. There are several kinds of Bayesian models, which use Bayesian statistical probabilities to compute predictions; examples include Bayesian linear regression modes, Gibbs sampling, and Bayes classifiers. Using this approach on Kepler’s data, minute areas of difference in light frequency are identified and the locations are recorded. This technique has led to the discovery of over 2,300 planet candidates, with an accuracy of over 80%.<br/>
 
-On the verge of the unknown, expanding our knowledge of the universe would be an impossible task without the power of machine learning.
+On the verge of the unknown, expanding our knowledge of the universe would be an impossible task without the power of machine learning.<br/>
+
+Sources:<br/>
+[](http://www.columbia.edu/~jwp2128/Teaching/E6720/BayesianModelsMachineLearning2016.pdf)<br/>
+[](https://builtin.com/data-science/random-forest-algorithm#how)<br/>
+[](https://www.nasa.gov/feature/goddard/2019/nasa-takes-a-cue-from-silicon-valley-to-hatch-artificial-intelligence-technologies)<br/>
+[](https://www.jpl.nasa.gov/news/news.php?feature=7756)<br/>
