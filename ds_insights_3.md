@@ -1,7 +1,7 @@
 ## Data Science Insights 3: a discover that's out of this world<br/>
 
 ![img](https://aeraposo.github.io/Data-440-Raposo/planet.jpg)<br/>
-[image source](https://www.nytimes.com/2017/12/14/science/eight-planets-star-system.html)<br/>
+[image source](https://www.nytimes.com/2017/12/14/science/eight-planets-star-system.html) <br/>
 
 As children we dream of being the “first”. The first to do, see, or find something knew. At the root of this yearning is the hope of discovery. With discovery comes the creation of knowledge, something that seems intangible and evokes images of scientists who are knee deep in a swamp or huddled around a Bunsen burner. Although this ‘hands on’ science may be one path to discovery, there are numerous other methods that accessible via your computer (ie, the thing you’re staring at right now!). Although machine learning and AI can see like a ‘black box’ merely capable of computing or predicting arbitrary values based on specialized, measurable data, such as predicting the number of people in a given photo, these models have actually been at the forefront of knowledge generation and ‘discovery’ throughout the past decade.<br/>
 
