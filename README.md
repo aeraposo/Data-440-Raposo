@@ -9,3 +9,4 @@
 7. [Project 2](https://aeraposo.github.io/Data-440-Raposo/project_2)
 8. [Data science insights 3](https://aeraposo.github.io/Data-440-Raposo/ds_insights_3)
 9. [Project 3](https://aeraposo.github.io/Data-440-Raposo/project_3)
+10. [Essay](https://aeraposo.github.io/Data-440-Raposo/in_class_essay)
