@@ -7,7 +7,9 @@ For project 3, we were tasked with modeling population movement within the synth
 Before modeling population movement within my own selected area, I first completed [an exercise](https://rpubs.com/adam_dennett/257231) in creating a gravity model using population data of London, England.<br/>
 After downloading the provided data, I took a closer look at its contents. The data contain polygons represeting the various cities and counties of England, along with their spatial coordinates. Next, I subset the data for London and proceeded to generate a distances matrix. This matrix contains the relative distances between loactions of mirgration within the city with respect to the CRS (coordinate reference system) or grid assigned to the area.
 
-Although interesting to create, the applications of this technology extend beyond the infrastructure, which is modeled and evaluated above. As descrived by Garcia and other contributers to their 2015 paper 'Modeling internal mirgration flows in sub-Saharan Africa using census microdata', gravity models not only allow us to model population movement in altered
+Although interesting to create, the applications of this technology extend beyond the infrastructure, which is modeled and evaluated above. As descrived by Garcia and other contributers to their 2015 paper 'Modeling internal mirgration flows in sub-Saharan Africa using census microdata', gravity models not only allow us to model population movement and interactions with existing infrastructure but also allow us to model this interactions after introducing alterations to infrastrcutre. After the signifiant changes in transportation that came with globalization, rapid changes in development have occured that either harm or aid in societal transportation flow. In a modern context, for example, traffic is largely dictated by the physical strcutres that direct its flow. The addition of a new exit to a highway could either expedite 
+
+- effects of globalization, 
 
 ![uganda st](https://aeraposo.github.io/Data-440-Raposo/uga_st.png)<br/>
 
