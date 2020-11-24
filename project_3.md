@@ -2,8 +2,6 @@
 
 For project 3, we were tasked with modeling population movement within the synthetic population derived in project 2.<br/>
 
-# London gravity model:<br/>
-
 ![london map](https://aeraposo.github.io/Data-440-Raposo/london_map.png)<br/>
 
 Before modeling population movement within my own selected area, I first completed [an exercise](https://rpubs.com/adam_dennett/257231) in creating a gravity model using population data of London, England.<br/>
