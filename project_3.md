@@ -30,4 +30,4 @@ Lastly, I made the following animation of a single agent traveling from Adjumani
 
 Here is a tesselation of voronoi polygons within the Kumi subdivision of Uganda. To reproduce the above models and plot within this subdivision, I would subset the origina world pop data to only include data pertaining to Kumi, use this data to product an od matrix, and subset flow data to contain flows between the centerpoints picutred below. Then, creating the animation and plots would follow directly.<br/>
 
-![uganda st](https://aeraposo.github.io/Data-440-Raposo/uga_st.png)<br/>
+![uganda st](https://aeraposo.github.io/Data-440-Raposo/uga_st.png)
